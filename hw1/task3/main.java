@@ -1,3 +1,5 @@
+//Реализовать простой калькулятор
+
 package hw1.task3;
 
 import java.util.Scanner;
@@ -9,7 +11,7 @@ public class main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.printf("Введите первое число: ");
+        System.out.printf("Введите первое число: "); 
         String enter = scanner.next();
         int firstNumber = Integer.parseInt(enter);
         System.out.printf("Введите оператор: ");
