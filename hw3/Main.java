@@ -49,8 +49,8 @@ public class Main {
         listOfNumbers.add(4);
         listOfNumbers.add(9);
         System.out.println(listOfNumbers);
-        System.out.println(Collections.max(listOfNumbers));
-        System.out.println(Collections.min(listOfNumbers));
+        System.out.println("Максимальное значение = " + Collections.max(listOfNumbers));
+        System.out.println("Минимальное значение = " + Collections.min(listOfNumbers));
         Task3.average(listOfNumbers);
 
         

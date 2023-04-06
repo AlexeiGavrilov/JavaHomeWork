@@ -11,7 +11,7 @@ public class Task3 {
             sum += ourList.get(i); 
         }
         double result = (double)sum/ourList.size();
-        System.out.println(result);
+        System.out.println("Cреднее арифметическое значение = " + result);
         
 }
 }
