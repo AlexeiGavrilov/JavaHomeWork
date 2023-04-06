@@ -9,26 +9,28 @@ public class Task1 { // ДЛЯ ПРЕПОДАВАТЕЛЯ: - я буду пис�
         if (ourArray == null) {
             return null;
         }   
-        if (ourArray.length < 2) {                              // условие выхода из рекусрии 
+        if (ourArray.length < 2) {                              // условия выхода из рекусрии 
             return ourArray;                                    
         }
-        int length_arr = ourArray.length / 2;
-        if (ourArray.length % 2 != 0){
+        int length_arr = ourArray.length / 2;   //определяем переменную с половиной длинны массива
+        if (ourArray.length % 2 != 0){         // проверка на тот случай, если не четное кол-во элементов в массиве
             length_arr += 1;
         }
-        int [] firstArray = new int[length_arr];            // инициализиурем два массва куда будем складывать элементы для будующей сортировки. 1ый массив с половиной длины от входящего массива  
-        int [] secondArray = new int [ourArray.length/2];      // 2ой так же с половиной длины, но с возможным остатком, если кол-во элементов во входящем массиве не четное   
-        for (int i = 0; i < ourArray.length / 2; i++) {
-            secondArray[i] = ourArray[i];
 
+        int [] firstArray = new int[length_arr];            // инициализиурем два массва куда будем складывать элементы для будующей сортировки. 1ый массив с половиной длины от входящего массива  
+        int [] secondArray = new int [ourArray.length/2];      // 2ой так же с половиной длины  
+        for (int i = 0; i < ourArray.length / 2; i++) { //заполнение массива 
+            secondArray[i] = ourArray[i];
         }
-        for (int i = ourArray.length / 2; i < ourArray.length; i++) {
+        
+        for (int i = ourArray.length / 2; i < ourArray.length; i++) {  //заполнение массива
                 firstArray[i - ourArray.length / 2] = ourArray[i];
 
         }
-        firstArray = mergeSort(firstArray);
-        secondArray = mergeSort(secondArray);
-        return mergeArray(firstArray, secondArray);
+        firstArray = mergeSort(firstArray); // вызов рекурсии  
+         secondArray = mergeSort(secondArray);
+         return mergeArray(firstArray, secondArray); //вызов метода для слияния
+        
     
     }
 
@@ -37,12 +39,12 @@ public class Task1 { // ДЛЯ ПРЕПОДАВАТЕЛЯ: - я буду пис�
         int posA = 0; //иниц. переменные, где будем хранить индексы каждого из массивов, чтобы не бегать постоянно циклом по всем массивам, а просто менять индексы
         int posB = 0;
         for (int i = 0; i < resultArrray.length; i++) {
-            if (posA < firstArray.length && posB < secondArray.length) {
-                if (firstArray[posA] < secondArray[posB]) {
+            if (posA < firstArray.length && posB < secondArray.length) { // проверка по длине
+                if (firstArray[posA] < secondArray[posB]) {  // сравнение по текущим индексам двух массивов 
                     resultArrray[i] = firstArray[posA];
                     posA++;
                 } else {
-                    resultArrray[i] = secondArray[posB];
+                    resultArrray[i] = secondArray[posB];  
                     posB++;
                 }
             } else if (posA == firstArray.length && posB < secondArray.length) {
